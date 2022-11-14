@@ -3,6 +3,9 @@ import dynamic from 'next/dynamic';
 import Head from 'next/head';
 import Image from 'next/image';
 import React from 'react';
+import { RequestAirdrop } from '../components/RequestAirdrop';
+import { SendLegacyTransaction } from '../components/SendLegacyTransaction';
+import { SendV0Transaction } from '../components/SendV0Transaction';
 import styles from '../styles/Home.module.css';
 
 const WalletDisconnectButtonDynamic = dynamic(
@@ -31,6 +34,18 @@ const Home: NextPage = () => {
                 <div className={styles.walletButtons}>
                     <WalletMultiButtonDynamic />
                     <WalletDisconnectButtonDynamic />
+                </div>
+
+                <div className={styles.walletButtons}>
+                    <RequestAirdrop />
+                </div>
+
+                <div className={styles.walletButtons}>
+                    <SendLegacyTransaction />
+                </div>
+                
+                <div className={styles.walletButtons}>
+                    <SendV0Transaction />
                 </div>
 
                 <p className={styles.description}>

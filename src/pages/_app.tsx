@@ -1,7 +1,11 @@
 import { WalletAdapterNetwork } from '@solana/wallet-adapter-base';
 import { ConnectionProvider, WalletProvider } from '@solana/wallet-adapter-react';
 import { WalletModalProvider } from '@solana/wallet-adapter-react-ui';
-import { UnsafeBurnerWalletAdapter, PhantomWalletAdapter, GlowWalletAdapter } from '@solana/wallet-adapter-wallets';
+import { UnsafeBurnerWalletAdapter, 
+    PhantomWalletAdapter, 
+    GlowWalletAdapter,
+    SolflareWalletAdapter
+} from '@solana/wallet-adapter-wallets';
 import { clusterApiUrl } from '@solana/web3.js';
 import type { AppProps } from 'next/app';
 import type { FC } from 'react';
@@ -34,6 +38,7 @@ const App: FC<AppProps> = ({ Component, pageProps }) => {
              */
             new PhantomWalletAdapter(),
             new GlowWalletAdapter(),
+            new SolflareWalletAdapter(),
             new UnsafeBurnerWalletAdapter(),
         ],
         // eslint-disable-next-line react-hooks/exhaustive-deps
