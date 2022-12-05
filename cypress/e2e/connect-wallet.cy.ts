@@ -7,6 +7,11 @@ describe('empty spec', () => {
     cy.contains('E2E Wallet').click();
     cy.contains('Disconnect').should('not.be.disabled');
     cy.get('.wallet-adapter-button').should('not.have.text', 'Select Wallet')
-    cy.wait(1000)
+    cy.contains('Request Airdrop').click();
+    cy.wait(5000)
+    cy.get('.notification').should('have.text', 'Airdrop successful')
+    cy.contains('Send Legacy Transaction (devnet)').click();
+    cy.wait(5000)
+    cy.get('.notification').should('have.text', 'SendLegacyTransaction successful')
   })
 })
