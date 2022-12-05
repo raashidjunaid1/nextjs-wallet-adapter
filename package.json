@@ -33,10 +33,12 @@
         "lint": "next lint"
     },
     "dependencies": {
-        "@solana/wallet-adapter-base": "^0.9.18",
-        "@solana/wallet-adapter-react": "^0.15.22",
-        "@solana/wallet-adapter-react-ui": "^0.9.20",
-        "@solana/wallet-adapter-wallets": "^0.19.5",
+        "@solana/wallet-adapter-base": "^0.9.19",
+        "@solana/wallet-adapter-react": "^0.15.25",
+        "@solana/wallet-adapter-react-ui": "^0.9.23",
+        "@solana/wallet-adapter-wallets": "^0.19.7",
+        "bs58": "^5.0.0",
+        "e2e-solana-wallet": "^0.1.1",
         "next": "^12.2.5",
         "react": "^18.0.0",
         "react-dom": "^18.0.0"

@@ -7,6 +7,7 @@ import { UnsafeBurnerWalletAdapter,
     SolflareWalletAdapter
 } from '@solana/wallet-adapter-wallets';
 import { clusterApiUrl } from '@solana/web3.js';
+import { E2EWallet } from 'e2e-solana-wallet';
 import type { AppProps } from 'next/app';
 import type { FC } from 'react';
 import React, { useMemo } from 'react';
@@ -39,7 +40,9 @@ const App: FC<AppProps> = ({ Component, pageProps }) => {
             new PhantomWalletAdapter(),
             new GlowWalletAdapter(),
             new SolflareWalletAdapter(),
-            new UnsafeBurnerWalletAdapter(),
+            // new UnsafeBurnerWalletAdapter(),
+            new E2EWallet(),
+            // new E2EWalletAdapter()
         ],
         // eslint-disable-next-line react-hooks/exhaustive-deps
         [network]
