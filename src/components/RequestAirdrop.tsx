@@ -4,16 +4,18 @@ import { LAMPORTS_PER_SOL } from '@solana/web3.js';
 import type { FC } from 'react';
 import React, { useCallback } from 'react';
 // import { useNotify } from './notify';
+import { toast } from 'react-toastify';
+import Notification from './Notification';
 
 export const RequestAirdrop: FC = () => {
     const { connection } = useConnection();
     const { publicKey } = useWallet();
-    // const notify = useNotify();
 
     const onClick = useCallback(async () => {
 
         console.log('publicKey :>> ', publicKey?.toBase58());
         let signature: TransactionSignature | undefined = undefined;
+        
         try {
             if (!publicKey) throw new Error('Wallet not connected!');
 
@@ -22,6 +24,7 @@ export const RequestAirdrop: FC = () => {
 
             await connection.confirmTransaction(signature, 'processed');
             console.log('success', 'Airdrop successful!', signature);
+            toast(<Notification text='Airdrop successful'/>);
         } catch (error: any) {
             console.log('error', `Airdrop failed! ${error?.message}`, signature);
         }

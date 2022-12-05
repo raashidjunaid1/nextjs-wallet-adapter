@@ -4,7 +4,8 @@ import type { TransactionSignature } from '@solana/web3.js';
 import { PublicKey, TransactionMessage, VersionedTransaction } from '@solana/web3.js';
 import type { FC } from 'react';
 import React, { useCallback } from 'react';
-
+import { toast } from 'react-toastify';
+import Notification from './Notification';
 
 export const SendLegacyTransaction: FC = () => {
     const { connection } = useConnection();
@@ -42,6 +43,7 @@ export const SendLegacyTransaction: FC = () => {
             console.log('info', 'Transaction sent:', signature);
 
             await connection.confirmTransaction({ blockhash, lastValidBlockHeight, signature });
+            toast(<Notification text='SendLegacyTransaction successful'/>);
             console.log('success', 'Transaction successful!', signature);
         } catch (error: any) {
             console.log('error', `Transaction failed! ${error?.message}`, signature);

@@ -11,14 +11,15 @@ import { E2EWallet } from 'e2e-solana-wallet';
 import type { AppProps } from 'next/app';
 import type { FC } from 'react';
 import React, { useMemo } from 'react';
-
+import { ToastContainer, toast } from 'react-toastify';
 // Use require instead of import since order matters
+import 'react-toastify/dist/ReactToastify.css';
 require('@solana/wallet-adapter-react-ui/styles.css');
 require('../styles/globals.css');
 
 const App: FC<AppProps> = ({ Component, pageProps }) => {
     // Can be set to 'devnet', 'testnet', or 'mainnet-beta'
-    const network = WalletAdapterNetwork.Devnet;
+    const network = WalletAdapterNetwork.Testnet;
 
     // You can also provide a custom RPC endpoint
     const endpoint = useMemo(() => clusterApiUrl(network), [network]);
@@ -53,6 +54,7 @@ const App: FC<AppProps> = ({ Component, pageProps }) => {
             <WalletProvider wallets={wallets} autoConnect>
                 <WalletModalProvider>
                     <Component {...pageProps} />
+                    <ToastContainer />
                 </WalletModalProvider>
             </WalletProvider>
         </ConnectionProvider>
